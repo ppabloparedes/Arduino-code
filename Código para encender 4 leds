@@ -1,0 +1,149 @@
+int pulso=0, pulso2=0, pulso3=0, pulso4=0;
+int btn1=4, btn2=3, btn3=2, btn4=1;
+int cont=1; //variable para contar los pulsos
+
+void setup()
+{
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(btn1, INPUT);
+  pinMode(btn2, INPUT);
+  pinMode(btn3, INPUT);
+  pinMode(btn4, INPUT);
+}
+
+void loop()
+{
+  pulso=digitalRead(btn1);
+  pulso2=digitalRead(btn2);
+  pulso3=digitalRead(btn3);
+  pulso4=digitalRead(btn4);
+   
+  if(pulso==HIGH && cont==1){
+      digitalWrite(13, HIGH);
+      digitalWrite(12, LOW);
+      digitalWrite(11, LOW);
+      digitalWrite(10, LOW);
+      digitalWrite(9, LOW);
+      cont++;
+      delay(1000);
+  }  
+  else if(pulso==HIGH && cont==2){
+      digitalWrite(13, HIGH);
+      digitalWrite(12, HIGH);
+      digitalWrite(11, LOW);
+      digitalWrite(10, LOW);
+      digitalWrite(9, LOW);
+      cont++;
+      delay(1000);
+    }
+  else if(pulso==HIGH && cont==3){
+      digitalWrite(13, HIGH);
+      digitalWrite(12, HIGH);
+      digitalWrite(11, HIGH);
+      digitalWrite(10, LOW);
+      digitalWrite(9, LOW);
+      cont++;
+      delay(1000);
+    }
+  else if(pulso==HIGH && cont==4){
+      digitalWrite(13, HIGH);
+      digitalWrite(12, HIGH);
+      digitalWrite(11, HIGH);
+      digitalWrite(10, HIGH);
+      digitalWrite(9, LOW);
+      cont++;
+      delay(1000);
+    }
+  else if(pulso==HIGH && cont==5){
+      digitalWrite(13, HIGH);
+      digitalWrite(12, HIGH);
+      digitalWrite(11, HIGH);
+      digitalWrite(10, HIGH);
+      digitalWrite(9, HIGH);
+      delay(1000);
+    }
+  //RETORNO------------
+  else if(pulso2==HIGH && cont==5){
+      digitalWrite(13, HIGH);
+      digitalWrite(12, HIGH);
+      digitalWrite(11, HIGH);
+      digitalWrite(10, HIGH);
+      digitalWrite(9, LOW);
+      cont--;
+      delay(1000);
+    }
+  else if(pulso2==HIGH && cont==4){
+      digitalWrite(13, HIGH);
+      digitalWrite(12, HIGH);
+      digitalWrite(11, HIGH);
+      digitalWrite(10, LOW);
+      digitalWrite(9, LOW);
+      cont--;
+      delay(1000);
+    }
+  else if(pulso2==HIGH && cont==3){
+      digitalWrite(13, HIGH);
+      digitalWrite(12, HIGH);
+      digitalWrite(11, LOW);
+      digitalWrite(10, LOW);
+      digitalWrite(9, LOW);
+      cont--;
+      delay(1000);
+    }
+  else if(pulso2==HIGH && cont==2){
+      digitalWrite(13, HIGH);
+      digitalWrite(12, LOW);
+      digitalWrite(11, LOW);
+      digitalWrite(10, LOW);
+      digitalWrite(9, LOW);
+      cont--;
+      delay(1000);
+    }
+  else if(pulso2==HIGH && cont==1){  
+      digitalWrite(13, LOW);
+      digitalWrite(12, LOW);
+      digitalWrite(11, LOW);
+      digitalWrite(10, LOW);
+      digitalWrite(9, LOW);
+      delay(1000);
+    }
+  //AUTOMATICO---------
+  while(pulso3==HIGH){
+    digitalWrite(13, LOW);
+    digitalWrite(12, LOW);
+    digitalWrite(11, LOW);
+    digitalWrite(10, LOW);
+    digitalWrite(9, LOW);
+    delay(300);
+    
+    digitalWrite(13, HIGH);
+    delay(500);
+    digitalWrite(12, HIGH);
+    delay(500);
+    digitalWrite(11, HIGH);
+    delay(500);
+    digitalWrite(10, HIGH);
+    delay(500);
+    digitalWrite(9, HIGH);
+    delay(500);
+    pulso3=LOW;
+  }     
+  
+  while(pulso4==HIGH){
+    digitalWrite(9, LOW);
+    delay(500);
+    digitalWrite(10, LOW);
+    delay(500);
+    digitalWrite(11, LOW);
+    delay(500);
+    digitalWrite(12, LOW);
+    delay(500);
+    digitalWrite(13, LOW);
+    delay(500);
+    pulso4=LOW;
+  }    
+}
